@@ -12,7 +12,8 @@
     <div class="container">
         <div class="row mt-4">
             <div class="col-md-6  mx-auto">
-                <form>
+                <form action="" method="POST">
+                    @csrf
                     <div class="mb-3">
                         <label for="exampleInputEmail1" class="form-label">Name</label>
                         <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
