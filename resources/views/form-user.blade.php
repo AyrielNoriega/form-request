@@ -11,7 +11,15 @@
 <body>
     <div class="container">
         <div class="row mt-4">
+            @if (isset($message))
+                <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                    <strong>Holy!</strong> {{ $message }}
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+            @endif
+            
             <div class="col-md-6  mx-auto">
+                
                 <form
                     method="POST"
                     action="{{ route('users') }}"
@@ -21,26 +29,37 @@
                     <div class="mb-3">
                         <label for="name" class="form-label">Name</label>
                         <input type="name" class="form-control" id="name" name="name" aria-describedby="emailHelp">
-                        <div id="nameHelp" class="form-text">We'll never share your email with anyone else.</div>
+                        @error('name')
+                            <div id="nameHelp" class="form-text text-danger">{{ $message }}</div>
+                        @enderror
                     </div>
                     <div class="mb-3">
                         <label for="lastname" class="form-label">LastName</label>
                         <input type="lastname" class="form-control" id="lastname"  name="lastname"  aria-describedby="emailHelp">
-                        <div id="lastnameHelp" class="form-text">We'll never share your email with anyone else.</div>
+                        @error('lastname')
+                            <div id="nameHelp" class="form-text text-danger">{{ $message }}</div>
+                        @enderror
                     </div>
                     <div class="mb-3">
                         <label for="age" class="form-label">Age</label>
                         <input type="number" class="form-control" id="age" name="age" aria-describedby="emailHelp">
-                        <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+                        @error('age')
+                            <div id="nameHelp" class="form-text text-danger">{{ $message }}</div>
+                        @enderror
                     </div>
                     <div class="mb-3">
                         <label for="email" class="form-label">Email address</label>
                         <input type="email" class="form-control" id="email"  name="email"  aria-describedby="emailHelp">
-                        <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+                        @error('email')
+                            <div id="nameHelp" class="form-text text-danger">{{ $message }}</div>
+                        @enderror
                     </div>
                     <div class="mb-3">
                         <label for="password" class="form-label">Password</label>
                         <input type="password" class="form-control" id="password" name="password">
+                        @error('password')
+                            <div id="nameHelp" class="form-text text-danger">{{ $message }}</div>
+                        @enderror
                     </div>
                 
                     <button type="submit" class="btn btn-primary">Submit</button>

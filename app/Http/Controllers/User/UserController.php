@@ -4,7 +4,7 @@ namespace App\Http\Controllers\User;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-
+use App\Models\User;
 class UserController extends Controller
 {
     /**
@@ -36,9 +36,24 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
+        $validated = $request->validate([
+            'name' => 'required|max:255',
+            'lastname' => 'required|max:255',
+            'age' => 'required|max:255',
+            'email' => 'required|max:255|email:rfc,dns|unique:users',
+            'password' => 'required|max:255',
+        ]);
 
-        
-        dd('si', $request->all());
+        $user = new User;
+        $user->name = $request->name;
+        $user->lastname = $request->lastname;
+        $user->age = $request->age;
+        $user->email = $request->email;
+        $user->password = $request->password;
+        $user->save();
+
+        $message = 'Se ha guardado usuario correctamente';
+        return view('form-user', compact('message'));
     }
 
     /**
