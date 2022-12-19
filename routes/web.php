@@ -4,6 +4,9 @@ use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\User\UserController;
 
-Route::get('/', [UserController::class, 'create']);
+Route::get('/', [UserController::class, 'index']);
 
-Route::post('/users', [UserController::class, 'store'])->name('users.save');
+Route::get('/form-user', [UserController::class, 'create'])->name('form.user');
+
+Route::post('/save-user', [UserController::class, 'store'])->name('users.save');
+
