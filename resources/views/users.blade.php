@@ -5,10 +5,22 @@
 @section('content')
     <div class="container">
         <div class="row">
+            <div class="col">
+                <a href="{{ route('form.user') }}" class="btn btn-primary">
+                    Crear usuario
+                </a>
+            </div>
+            <div class="col">
+                <a href="{{ route('form.role') }}" class="btn btn-primary">
+                    Crear role
+                </a>
+            </div>
+            
+            
+        </div>
+        <div class="row">
             <h2>Listado de usuarios</h2>
-            <a href="{{ route('form.user') }}" class="btn btn-primary">
-                Crear usuario
-            </a>
+            
         </div>
         <table class="table">
             <thead>
@@ -21,7 +33,6 @@
             </thead>
             <tbody>
                 @foreach ($users as $user)
-                    
                     <tr>
                         <th scope="row">{{ $user->id }}</th>
                         <td>{{ $user->name }}</td>
