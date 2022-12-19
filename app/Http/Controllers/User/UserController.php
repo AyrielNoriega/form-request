@@ -45,9 +45,9 @@ class UserController extends Controller
         $user->password = $request->password;
         $user->save();
 
-        $message = 'Se ha guardado usuario correctamente';
-        return view('form-user', compact('message'));
-        // return redirect('some/url')->withErrors($validator);
+        $message = ['message' => 'Se ha guardado usuario correctamente'];
+        // return view('form-user', compact('message'));
+        return redirect('/')->with($message);
     }
 
     /**

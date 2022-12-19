@@ -11,9 +11,10 @@
 <body>
     <div class="container">
         <div class="row mt-4">
-            @if (isset($message))
+            @if (session('message'))
                 <div class="alert alert-warning alert-dismissible fade show" role="alert">
-                    <strong>Holy!</strong> {{ $message }}
+                    
+                    <strong>Holy!</strong> {{ session('message') }}
                     <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                 </div>
             @endif
