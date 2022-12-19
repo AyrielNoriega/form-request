@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\User;
 use App\Http\Requests\StoreUserRequest;
+use Illuminate\Support\Facades\Hash;
 class UserController extends Controller
 {
     /**
@@ -42,7 +43,7 @@ class UserController extends Controller
         $user->lastname = $request->lastname;
         $user->age = $request->age;
         $user->email = $request->email;
-        $user->password = $request->password;
+        $user->password = Hash::make($request->password);
         $user->save();
 
         $message = ['message' => 'Se ha guardado usuario correctamente'];
