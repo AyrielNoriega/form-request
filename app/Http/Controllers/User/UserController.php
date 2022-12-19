@@ -5,6 +5,7 @@ namespace App\Http\Controllers\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\User;
+use App\Http\Requests\StoreUserRequest;
 class UserController extends Controller
 {
     /**
@@ -31,22 +32,11 @@ class UserController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  App\Http\Requests\StoreUserRequest  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(StoreUserRequest $request)
     {
-        
-        $validated = $request->validate([
-            'name' => 'required|max:255',
-            'lastname' => 'required|max:255',
-            'age' => 'required|max:255',
-            'email' => 'required|max:255|email:rfc,dns|unique:users',
-            'password' => 'required|max:255',
-        ]);
-
-
-
         $user = new User;
         $user->name = $request->name;
         $user->lastname = $request->lastname;
@@ -57,6 +47,7 @@ class UserController extends Controller
 
         $message = 'Se ha guardado usuario correctamente';
         return view('form-user', compact('message'));
+        // return redirect('some/url')->withErrors($validator);
     }
 
     /**
