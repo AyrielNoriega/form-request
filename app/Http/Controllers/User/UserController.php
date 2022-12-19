@@ -36,6 +36,7 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
+        
         $validated = $request->validate([
             'name' => 'required|max:255',
             'lastname' => 'required|max:255',
@@ -43,6 +44,8 @@ class UserController extends Controller
             'email' => 'required|max:255|email:rfc,dns|unique:users',
             'password' => 'required|max:255',
         ]);
+
+
 
         $user = new User;
         $user->name = $request->name;
