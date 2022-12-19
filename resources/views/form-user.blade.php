@@ -28,28 +28,28 @@
                     {{-- @method('POST') --}}
                     <div class="mb-3">
                         <label for="name" class="form-label">Name</label>
-                        <input type="name" class="form-control" id="name" name="name" aria-describedby="emailHelp">
+                        <input type="name" class="form-control" id="name" name="name" value="{{ old('name') }}" aria-describedby="emailHelp">
                         @error('name')
                             <div id="nameHelp" class="form-text text-danger">{{ $message }}</div>
                         @enderror
                     </div>
                     <div class="mb-3">
                         <label for="lastname" class="form-label">LastName</label>
-                        <input type="lastname" class="form-control" id="lastname"  name="lastname"  aria-describedby="emailHelp">
+                        <input type="lastname" class="form-control" id="lastname"  name="lastname" value="{{ old('lastname') }}"  aria-describedby="emailHelp">
                         @error('lastname')
                             <div id="nameHelp" class="form-text text-danger">{{ $message }}</div>
                         @enderror
                     </div>
                     <div class="mb-3">
                         <label for="age" class="form-label">Age</label>
-                        <input type="number" class="form-control" id="age" name="age" aria-describedby="emailHelp">
+                        <input type="number" class="form-control" id="age" name="age" value="{{ old('age') }}" aria-describedby="emailHelp">
                         @error('age')
                             <div id="nameHelp" class="form-text text-danger">{{ $message }}</div>
                         @enderror
                     </div>
                     <div class="mb-3">
                         <label for="email" class="form-label">Email address</label>
-                        <input type="email" class="form-control" id="email"  name="email"  aria-describedby="emailHelp">
+                        <input type="email" class="form-control" id="email"  name="email" value="{{ old('email') }}"  aria-describedby="emailHelp">
                         @error('email')
                             <div id="nameHelp" class="form-text text-danger">{{ $message }}</div>
                         @enderror
