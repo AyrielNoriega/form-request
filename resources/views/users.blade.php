@@ -6,7 +6,7 @@
     <div class="container">
         <div class="row">
             <div class="col">
-                <a href="{{ route('form.user') }}" class="btn btn-primary">
+                <a href="{{ route('user.form') }}" class="btn btn-primary">
                     Crear usuario
                 </a>
             </div>

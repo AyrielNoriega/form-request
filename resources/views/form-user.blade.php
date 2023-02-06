@@ -23,7 +23,7 @@
                 
                 <form
                     method="POST"
-                    action="{{ route('users.save') }}"
+                    action="{{ route('user.save') }}"
                 >
                     @csrf
                     {{-- @method('POST') --}}

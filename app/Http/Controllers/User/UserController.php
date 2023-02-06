@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use App\Models\User;
 use App\Http\Requests\StoreUserRequest;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Route;
 class UserController extends Controller
 {
     /**
@@ -15,7 +16,7 @@ class UserController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {
+    {dd(Route::currentRouteName());
         $users = User::all();
         return view('users', compact('users'));
     }
